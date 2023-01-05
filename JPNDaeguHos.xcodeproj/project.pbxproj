@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		162B67D92967935A00D5B00D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 162B67D82967935A00D5B00D /* README.md */; };
 		1670543C29671ED00069F98C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1670543B29671ED00069F98C /* GoogleService-Info.plist */; };
 		16921E3A2967114400FC8B95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16921E392967114400FC8B95 /* AppDelegate.swift */; };
 		16921E3C2967114400FC8B95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16921E3B2967114400FC8B95 /* SceneDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		162B67D82967935A00D5B00D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1670543B29671ED00069F98C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		16921E362967114400FC8B95 /* JPNDaeguHos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JPNDaeguHos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16921E392967114400FC8B95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 		16921E2D2967114400FC8B95 = {
 			isa = PBXGroup;
 			children = (
+				162B67D82967935A00D5B00D /* README.md */,
 				16921E382967114400FC8B95 /* JPNDaeguHos */,
 				16921E372967114400FC8B95 /* Products */,
 				12AC8C995C53B72049EBDF01 /* Pods */,
@@ -166,6 +169,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				162B67D92967935A00D5B00D /* README.md in Resources */,
 				16921E462967114500FC8B95 /* LaunchScreen.storyboard in Resources */,
 				16921E5C2967187400FC8B95 /* HospitalListCell.xib in Resources */,
 				1670543C29671ED00069F98C /* GoogleService-Info.plist in Resources */,
