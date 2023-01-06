@@ -24,7 +24,7 @@
             hospitalNameLabel.text = hospitalName
             
             guard let detail = hospitalDetail else { return }
-            print(detail)
+//            print(detail)
             addressLabel.text = detail.address
             telLabel.text = detail.tel
             urlLabel.text = detail.hospitalURL
