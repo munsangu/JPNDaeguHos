@@ -58,13 +58,12 @@
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cb-vS-hoM">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oUL-tw-i3d">
                                         <rect key="frame" x="0.0" y="53.666666666666686" width="353" height="200"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="zst-g1-vk9"/>
+                                            <constraint firstAttribute="height" constant="200" id="cML-UA-Ecz"/>
                                         </constraints>
-                                    </view>
+                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="a82-aw-gOQ">
                                         <rect key="frame" x="0.0" y="273.66666666666669" width="353" height="50.666666666666686"/>
                                         <subviews>
@@ -172,6 +171,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="病院情報" id="ndx-KA-OLh"/>
                     <connections>
+                        <outlet property="addressImageView" destination="oUL-tw-i3d" id="dp3-Hm-SYZ"/>
                         <outlet property="addressLabel" destination="mc4-ke-4Gd" id="eIp-Z5-T5w"/>
                         <outlet property="emailLabel" destination="KGI-jp-aOz" id="OQl-el-hfK"/>
                         <outlet property="hospitalNameLabel" destination="T1Z-Ek-ZGa" id="82t-MR-LMl"/>

@@ -11,7 +11,7 @@ struct Hospital: Codable {
 struct HospitalDetail: Codable {
     let address: String
     let koreanAddress: String
-    // let addressImageURL: String
+    let addressImgURL: String
     let tel: String
     let hospitalURL: String
     let eMail: String

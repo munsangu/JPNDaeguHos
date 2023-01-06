@@ -1,4 +1,5 @@
     import UIKit
+    import Kingfisher
 
     class HospitalDetailViewController: UIViewController {
         
@@ -11,6 +12,7 @@
         @IBOutlet weak var telLabel: UILabel!
         @IBOutlet weak var addressLabel: UILabel!
         @IBOutlet weak var hospitalNameLabel: UILabel!
+        @IBOutlet weak var addressImageView: UIImageView!
         
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -28,6 +30,8 @@
             urlLabel.text = detail.hospitalURL
             emailLabel.text = detail.eMail
             serviceLabel.text = detail.services
+            let addressImage = URL(string: detail.addressImgURL)
+            addressImageView.kf.setImage(with: addressImage)
     //        print(detail.koreanAddress)
             
             // 전화번호 클릭 시 전화 앱으로 이동
