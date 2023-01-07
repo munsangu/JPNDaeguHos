@@ -10,8 +10,8 @@ struct Hospital: Codable {
 
 struct HospitalDetail: Codable {
     let address: String
-    let koreanAddress: String
-    let addressImgURL: String
+    let addressX: Double
+    let addressY: Double
     let tel: String
     let hospitalURL: String
     let eMail: String
