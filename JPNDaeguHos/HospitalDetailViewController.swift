@@ -1,9 +1,8 @@
 import UIKit
 import Kingfisher
 import MapKit
-import CoreLocation
 
-class HospitalDetailViewController: UIViewController, CLLocationManagerDelegate {
+class HospitalDetailViewController: UIViewController {
     
     var hospitalDetail: HospitalDetail?
     var hospitalName: String?
@@ -15,9 +14,7 @@ class HospitalDetailViewController: UIViewController, CLLocationManagerDelegate 
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var hospitalNameLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
-    
-    let locationManager = CLLocationManager()
-    
+            
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -28,23 +25,18 @@ class HospitalDetailViewController: UIViewController, CLLocationManagerDelegate 
         hospitalNameLabel.text = hospitalName
         
         guard let detail = hospitalDetail else { return }
-        //            print(detail)
+        // print(detail)
         addressLabel.text = detail.address
         telLabel.text = detail.tel
         urlLabel.text = detail.hospitalURL
         emailLabel.text = detail.eMail
         serviceLabel.text = detail.services
         
-        // 특정 주소의 위치 표시
-        locationManager.delegate = self
-        // 정확도를 최고로 설정
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        // 위치 업데이트를 시작
-        locationManager.startUpdatingLocation()
         // 위치 보기 설정
         mapView.showsUserLocation = true
         mapView.isScrollEnabled = false
         mapView.isZoomEnabled = false
+        
         
         let locationAddr = CLLocationCoordinate2D(latitude: detail.addressY, longitude: detail.addressX)
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
@@ -66,7 +58,7 @@ class HospitalDetailViewController: UIViewController, CLLocationManagerDelegate 
         urlLabel.addGestureRecognizer(urlPage)
         
     }
-    
+        
     @objc func calling(sender: UITapGestureRecognizer) {
         guard let telNumber = telLabel.text else { return }
         // URLScheme 문자열을 통해 URL Instance를 만들기
