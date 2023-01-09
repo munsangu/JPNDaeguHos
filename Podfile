@@ -8,5 +8,6 @@ target 'JPNDaeguHos' do
   # Pods for JPNDaeguHos
   pod 'Kingfisher'
   pod 'Firebase/Database'
+  pod 'DLRadioButton', '~> 1.4'
 
 end

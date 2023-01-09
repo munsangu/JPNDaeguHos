@@ -1,12 +1,15 @@
 import UIKit
 import Kingfisher
 import MapKit
+import CoreLocation
 
-class HospitalDetailViewController: UIViewController {
+class HospitalDetailViewController: UIViewController, CLLocationManagerDelegate {
     
     var hospitalDetail: HospitalDetail?
     var hospitalName: String?
-    
+    var hospitalX: Double?
+    var hospitalY: Double?
+        
     @IBOutlet weak var serviceLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var urlLabel: UILabel!
@@ -14,23 +17,28 @@ class HospitalDetailViewController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var hospitalNameLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
-            
+    
+    let locationMg = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        locationMg.delegate = self
+//        locationMg.requestAlwaysAuthorization()
     }
-    
+                
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         hospitalNameLabel.text = hospitalName
         
         guard let detail = hospitalDetail else { return }
-        // print(detail)
         addressLabel.text = detail.address
         telLabel.text = detail.tel
         urlLabel.text = detail.hospitalURL
         emailLabel.text = detail.eMail
         serviceLabel.text = detail.services
+        hospitalX = detail.addressY
+        hospitalY = detail.addressX
         
         // 위치 보기 설정
         mapView.showsUserLocation = true
@@ -46,6 +54,10 @@ class HospitalDetailViewController: UIViewController {
         annotation.coordinate = locationAddr
         mapView.addAnnotation(annotation)
         
+        // 주소 클릭 시 애플 앱으로 이동
+        let destination = UITapGestureRecognizer(target: self, action: #selector(mapping))
+        addressLabel.isUserInteractionEnabled = true
+        addressLabel.addGestureRecognizer(destination)
         
         // 전화번호 클릭 시 전화 앱으로 이동
         let callNum = UITapGestureRecognizer(target: self, action: #selector(calling))
@@ -59,10 +71,34 @@ class HospitalDetailViewController: UIViewController {
         
     }
         
-    @objc func calling(sender: UITapGestureRecognizer) {
-        guard let telNumber = telLabel.text else { return }
+//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        switch status {
+//        case .authorizedAlways, .authorizedWhenInUse:
+//            print("GPS 권한 설정됨")
+//            self.locationMg.startUpdatingLocation()
+//        case .restricted, .notDetermined:
+//            print("GPS 권한 설정되지 않음")
+//            locationMg.requestAlwaysAuthorization()
+//        case .denied:
+//            print("GPS 권한 요청 거부됨")
+//            locationMg.requestAlwaysAuthorization()
+//        default:
+//            print("GPS: Default")
+//        }
+//    }
+    
+    @objc func mapping(sender: UITapGestureRecognizer) {
+        guard let destinationX = hospitalY, let destinationY = hospitalX else { return }
         // URLScheme 문자열을 통해 URL Instance를 만들기
         // canOpenURL(_:) Method를 통해서 URL 체계를 처리하는데 앱을 사용할 수 있는지 여부를 점검
+        if let url = NSURL(string: "http://maps.apple.com/?ll=\(destinationX),\(destinationY)"),
+           UIApplication.shared.canOpenURL(url as URL) {
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        }
+    }
+        
+    @objc func calling(sender: UITapGestureRecognizer) {
+        guard let telNumber = telLabel.text else { return }
         if let url = NSURL(string: "tel://\(telNumber)"),
            UIApplication.shared.canOpenURL(url as URL) {
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)

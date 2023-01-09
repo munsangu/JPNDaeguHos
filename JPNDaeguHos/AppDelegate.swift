@@ -10,6 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         sleep(2)
         FirebaseApp.configure()
+        
         return true
     }
 
@@ -29,4 +30,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

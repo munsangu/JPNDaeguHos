@@ -12,6 +12,7 @@ struct HospitalDetail: Codable {
     let address: String
     let addressX: Double
     let addressY: Double
+    let hospitalKoreanName: String
     let tel: String
     let hospitalURL: String
     let eMail: String
