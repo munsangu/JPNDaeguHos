@@ -5,7 +5,7 @@ class SettingViewController: UIViewController {
     
     @IBOutlet weak var modeSelector: UISegmentedControl!
     @IBOutlet weak var currentVersion: UILabel!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         makeUI()
@@ -18,6 +18,7 @@ class SettingViewController: UIViewController {
         
         let rawValue = UserDefaults.standard.integer(forKey: "Appearance")
         modeSelector.selectedSegmentIndex = rawValue
+        
     }
     
     @IBAction func modeSelect(_ sender: Any) {

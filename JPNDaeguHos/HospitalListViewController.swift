@@ -7,7 +7,7 @@ class HospitalListViewController: UITableViewController {
     var ref: DatabaseReference!
     
     var hospitalList: [Hospital] = []
-
+        
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -48,12 +48,11 @@ class HospitalListViewController: UITableViewController {
         
         let mainImageURL = URL(string: hospitalList[indexPath.row].hospitalMainImageURL)
         cell.hospitalMainImageView.kf.setImage(with: mainImageURL)
-        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 100
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

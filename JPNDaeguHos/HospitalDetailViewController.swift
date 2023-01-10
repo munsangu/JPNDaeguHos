@@ -1,7 +1,6 @@
 import UIKit
 import Kingfisher
 import MapKit
-import CoreLocation
 
 class HospitalDetailViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -9,7 +8,13 @@ class HospitalDetailViewController: UIViewController, CLLocationManagerDelegate 
     var hospitalName: String?
     var hospitalX: Double?
     var hospitalY: Double?
-        
+    
+    @IBOutlet weak var addressTitleLabel: UILabel!
+    @IBOutlet weak var telTitleLabel: UILabel!
+    @IBOutlet weak var urlTitleLabel: UILabel!
+    @IBOutlet weak var emailTitleLabel: UILabel!
+    @IBOutlet weak var serviceTitleLabel: UILabel!
+    
     @IBOutlet weak var serviceLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var urlLabel: UILabel!
@@ -18,17 +23,13 @@ class HospitalDetailViewController: UIViewController, CLLocationManagerDelegate 
     @IBOutlet weak var hospitalNameLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
-    let locationMg = CLLocationManager()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        locationMg.delegate = self
-//        locationMg.requestAlwaysAuthorization()
     }
                 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+    
         hospitalNameLabel.text = hospitalName
         
         guard let detail = hospitalDetail else { return }
@@ -70,23 +71,7 @@ class HospitalDetailViewController: UIViewController, CLLocationManagerDelegate 
         urlLabel.addGestureRecognizer(urlPage)
         
     }
-        
-//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-//        switch status {
-//        case .authorizedAlways, .authorizedWhenInUse:
-//            print("GPS 권한 설정됨")
-//            self.locationMg.startUpdatingLocation()
-//        case .restricted, .notDetermined:
-//            print("GPS 권한 설정되지 않음")
-//            locationMg.requestAlwaysAuthorization()
-//        case .denied:
-//            print("GPS 권한 요청 거부됨")
-//            locationMg.requestAlwaysAuthorization()
-//        default:
-//            print("GPS: Default")
-//        }
-//    }
-    
+            
     @objc func mapping(sender: UITapGestureRecognizer) {
         guard let destinationX = hospitalY, let destinationY = hospitalX else { return }
         // URLScheme 문자열을 통해 URL Instance를 만들기
