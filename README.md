@@ -45,8 +45,11 @@
         
 2. 등록 과정(Reject Issue)
     1) Guideline 1.5 - Safety - Developer Information
+    
         개발자 정보가 포함된 링크가 연결되지 않아서 생긴 거절 사유 -> 연결이 되는 링크로 변경 후 통과
+        
     2) Guideline 4.2 - Design - Minimum Functionality
+    
         처음에는 해당 어플에 기능이 많이 없어서 거절당했다고 판단해서, 넣을 수 있는 기능을 추가했었으나 똑같은 이유로 거절을 당했고
         답답한 마음에 직접 물어봤고 담당자가 참고하라고 알려준 것은 HIG(https://developer.apple.com/design/human-interface-guidelines/guidelines/overview),
             Essential Design Principles(https://developer.apple.com/videos/play/wwdc2017/802/),
